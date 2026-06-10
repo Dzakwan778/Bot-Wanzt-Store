@@ -1,0 +1,6 @@
+{
+  "name": "Wanzz Store WhatsApp Bot Manager",
+  "description": "A web application to connect, manage, and edit products and auto-responses for your WhatsApp store bot using Baileys connection pairing.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

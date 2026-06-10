@@ -1,0 +1,115 @@
+{
+  "entities": {
+    "Category": {
+      "title": "Category",
+      "description": "Category for digital products",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "icon": { "type": "string" }
+      },
+      "required": ["id", "name"]
+    },
+    "Product": {
+      "title": "Product",
+      "description": "Digital product catalog item",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "category": { "type": "string" },
+        "details": { "type": "string" },
+        "image": { "type": "string" },
+        "searchCount": { "type": "number" },
+        "variants": { "type": "array" },
+        "variantCategories": { "type": "array" }
+      },
+      "required": ["id", "name", "category", "details"]
+    },
+    "BotSettings": {
+      "title": "BotSettings",
+      "description": "Global settings for the WhatsApp bot",
+      "type": "object",
+      "properties": {
+        "storeName": { "type": "string" },
+        "menuTemplate": { "type": "string" },
+        "listTemplate": { "type": "string" },
+        "infoTemplate": { "type": "string" },
+        "fallbackTemplate": { "type": "string" },
+        "welcomeTemplate": { "type": "string" },
+        "sendMenuWithImage": { "type": "boolean" },
+        "menuImageUrl": { "type": "string" },
+        "ownerNumber": { "type": "string" },
+        "ownerTemplate": { "type": "string" },
+        "paymentTemplate": { "type": "string" },
+        "paymentQrisUrl": { "type": "string" },
+        "orderSuccessTemplate": { "type": "string" },
+        "whitelistedGroups": { "type": "array" },
+        "welcomeImageUrl": { "type": "string" },
+        "infoImageUrl": { "type": "string" },
+        "fallbackImageUrl": { "type": "string" },
+        "ownerImageUrl": { "type": "string" },
+        "orderSuccessImageUrl": { "type": "string" }
+      },
+      "required": ["storeName", "ownerNumber"]
+    },
+    "BotCommand": {
+      "title": "BotCommand",
+      "description": "Interactive bot command",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "trigger": { "type": "string" },
+        "response": { "type": "string" },
+        "mediaUrl": { "type": "string" },
+        "mediaType": { "type": "string" },
+        "description": { "type": "string" }
+      },
+      "required": ["id", "trigger", "response"]
+    },
+    "Transaction": {
+      "title": "Transaction",
+      "description": "Order/transaction record",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "customerName": { "type": "string" },
+        "customerPhone": { "type": "string" },
+        "productId": { "type": "string" },
+        "productName": { "type": "string" },
+        "quantity": { "type": "number" },
+        "totalPrice": { "type": "number" },
+        "originalPrice": { "type": "number" },
+        "sellingPrice": { "type": "number" },
+        "paymentMethod": { "type": "string" },
+        "buyerPhone": { "type": "string" },
+        "status": { "type": "string" },
+        "timestamp": { "type": "string" }
+      },
+      "required": ["id", "productId", "productName", "totalPrice", "status", "timestamp"]
+    }
+  },
+  "firestore": {
+    "categories": {
+      "schema": "Category",
+      "description": "Store categories"
+    },
+    "products": {
+      "schema": "Product",
+      "description": "Store products"
+    },
+    "settings": {
+      "schema": "BotSettings",
+      "description": "Application and bot settings"
+    },
+    "commands": {
+      "schema": "BotCommand",
+      "description": "Triggerable bot commands"
+    },
+    "transactions": {
+      "schema": "Transaction",
+      "description": "Logs of store transactions"
+    }
+  }
+}
